@@ -1,0 +1,596 @@
+/* --------------------------------------------------
+  GOOGLE FONTS
+-------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
+/* --------------------------------------------------
+  ROOT VARIABLES
+-------------------------------------------------- */
+:root {
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Space Grotesk", sans-serif;
+  --primary-color: #cbf716;
+  --color-bg: #000;
+  --color-text: #fff;
+  --border-color: #cbf716;
+  /* --border-color: #ffffff50;        */
+  --logo-size: 160px;
+}
+
+/* --------------------------------------------------
+  GLOBAL STYLES
+-------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 3px;
+  background-color: var(--primary-color); /* Dot color */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+  will-change: transform;
+  box-shadow: 0 0 0 1px white;
+}
+
+.cursor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Lighter, more visible ring */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  z-index: 0; /* Lower than the center dot */
+}
+
+/* --------------------------------------------------
+  SIDEBAR STYLING
+-------------------------------------------------- */
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  background-color: #242526;
+  padding: 20px;
+  color: var(--color-text);
+}
+.logo-wraper {
+  position: relative;
+  z-index: 1; /* Ensures content stays above */
+}
+
+.logo-wraper::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+  background-color: var(--primary-color);
+  clip-path: polygon(100% 0, 0% 100%, 0 0);
+  z-index: -1; /* Push it behind the content */
+}
+.soft-tags {
+  font-family: var(--font-secondary);
+  border-left: 1px solid #fff;
+}
+.soft-tags-wraper {
+  font-family: var(--font-secondary);
+}
+.singer-title {
+  font-size: 36px;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+}
+.social-icons a {
+  border: 1px solid #ffff;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.social-icons a:hover {
+  background-color: rgba(255, 255, 255, 0.363);
+  color: var(--primary-color) !important;
+  border: 1px solid transparent;
+  transition: 0.5s ease-in-out;
+}
+.site-vt-menu li a {
+  /* font-weight: bold; */
+  font-family: var(--font-secondary);
+  padding: 0.7rem 1rem;
+  display: block;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  border-bottom: 1px solid #000;
+}
+/* Active nav item background */
+.site-vt-menu .nav-link.active {
+  background-color: var(--primary-color);
+  color: #000 !important; /* Adjust text color if needed */
+  border-radius: 4px;
+}
+
+.dropdown-item-custom.active {
+  background-color: var(--primary-color);
+  color: #000 !important;
+}
+
+/* Dropdown hover wrapper */
+.dropdown-hover {
+  position: relative;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-menu-custom {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 180px;
+  background-color: #232323;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: none;
+  z-index: 1000;
+  border-left: 2px solid var(--primary-color); /* Optional visual indicator */
+}
+
+/* Show dropdown on hover */
+.dropdown-hover:hover .dropdown-menu-custom {
+  display: block;
+}
+
+/* Dropdown items styling */
+.dropdown-item-custom {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+/* Animate arrow on hover */
+.dropdown-hover:hover i.fa-angle-right {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+/* .site-vt-menu i {
+  color: var(--primary-color);
+} */
+.site-vt-menu a {
+  color: #fff !important;
+}
+.site-vt-menu a:hover {
+  color: var(--primary-color) !important;
+}
+.dropdown-item-custom a:hover {
+  background-color: var(
+    --primary-color
+  ) !important; /* Highlight color on hover */
+  color: #000;
+}
+.dropdown-item-custom a.active:hover {
+  color: white !important;
+}
+/* From Uiverse.io by doniaskima */
+.btn-one,
+.btn-one *,
+.btn-one :after,
+.btn-one :before,
+.btn-one:after,
+.btn-one:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-one {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  border: 2px solid var(--border-color);
+}
+
+.btn-one:disabled {
+  cursor: default;
+}
+
+.btn-one:-moz-focusring {
+  outline: auto;
+}
+
+.btn-one svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-one [hidden] {
+  display: none;
+}
+
+.btn-one {
+  border-radius: 99rem;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-one span {
+  display: grid;
+  inset: 0;
+  place-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.btn-one .marquee {
+  --spacing: 7em;
+  --start: 0em;
+  --end: 7em;
+  -webkit-animation: marquee 1s linear infinite;
+  animation: marquee 1s linear infinite;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  opacity: 0;
+  position: relative;
+  text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0,
+    #fff calc(var(--spacing) * -2) 0;
+}
+
+.btn-one:hover .marquee {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  opacity: 1;
+}
+
+.btn-one:hover .text {
+  opacity: 0;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+}
+
+/* --------------------------------------------------
+SITE LOGO WRAPPER (standard border)
+-------------------------------------------------- */
+.site-logo-wrapper {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+  border: 3px solid var(--border-color); /* Standard border */
+}
+
+/* Logo image inside the wrapper */
+.site-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.social-icons a {
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color); /* Spotify green as example */
+}
+
+/* --------------------------------------------------
+  SIDEBAR STYLING
+-------------------------------------------------- */
+.banner-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height */
+  overflow: hidden;
+}
+
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* overlay color */
+  z-index: 1;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 0; /* Align content to the left side */
+  transform: translateY(-50%); /* Vertically center */
+  z-index: 2;
+  text-align: left; /* Align text to the left */
+  padding-left: 30px; /* Optional: add padding for spacing */
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* Typing Text */
+.banner-main-title {
+  font-size: 150px;
+  font-family: var(--font-secondary);
+}
+.hello-text {
+  font-size: 40px;
+  font-family: var(--font-secondary);
+}
+.typewriter {
+  font-family: var(--font-secondary);
+  width: 100%;
+}
+.typewriter p {
+  overflow: hidden;
+  margin: 0 auto;
+  display: inline-block;
+  font-weight: normal;
+}
+.typewriter p:after {
+  content: "";
+  display: inline-block;
+  background-color: white;
+  margin-left: 2px;
+  height: 25px;
+  width: 4px;
+  animation: cursor 0.4s infinite;
+}
+
+/* The typewriter cursor effect */
+@keyframes cursor {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.mobile-menu {
+  display: none;
+}
+.sidebar {
+  display: block;
+}
+.text-justify {
+  text-align: justify;
+}
+.section-title {
+  position: relative;
+}
+
+.outlined-text {
+  font-size: 130px;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  position: absolute;
+  top: -45px;
+  left: -1px;
+  z-index: 0;
+  opacity: 0.1;
+}
+.outlined-text-right {
+  font-size: 130px;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  position: absolute;
+  top: -45px;
+  right: -1px;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.solid-text {
+  font-size: 60px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+.about-img {
+  width: 550px;
+  height: 550px;
+  object-fit: contain;
+}
+.wrapper-slider {
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .wrapper-slider {
+    padding: 50px 10px;
+  }
+}
+
+.slick-slider {
+  min-width: 0;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+
+.slider {
+  position: relative;
+  padding: 0px 60px;
+}
+
+@media (max-width: 767px) {
+  .slider {
+    padding: 0px 40px;
+  }
+}
+
+.slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  padding: 10px;
+  margin: -20px 0 0 0;
+  z-index: 10;
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #fff !important; /* White background */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Optional: rounded arrows */
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.slider .slick-arrow.slick-prev {
+  left: 0;
+  background: url("https://img.icons8.com/ios/50/000000/long-arrow-left.png") 0
+    0 / 100% no-repeat;
+}
+.slider .slick-arrow.slick-next {
+  right: 0;
+  background: url("https://img.icons8.com/ios/50/000000/long-arrow-right.png") 0
+    0 / 100% no-repeat;
+}
+.slider .slick-arrow.slick-disabled {
+  opacity: 0.2;
+}
+
+.slider__item {
+  padding: 0px 15px;
+}
+.slider__item img {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------
+Media Query
+-------------------------------------------------- */
+.mobile-menu-button {
+  border-radius: 50%;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--primary-color);
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .soft-tags-wraper {
+    display: none;
+  }
+  .banner-content {
+    padding-left: 0;
+  }
+  .sidebar {
+    display: none;
+  }
+  .offcanvas {
+    background-color: var(--primary-color) !important;
+  }
+  .mobile-sidebar {
+    display: block !important;
+  }
+  .mobile-sidebar {
+    position: relative !important;
+  }
+  .logo-wraper {
+    position: static;
+  }
+  .banner-content {
+    text-align: center;
+  }
+  .banner-main-title {
+    font-size: 80px;
+    font-family: var(--font-secondary);
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .dropdown-menu-custom {
+    position: absolute;
+    left: 100%;
+    top: 40px;
+    left: 148px;
+  }
+}
