@@ -61,14 +61,54 @@ body {
   z-index: 0; /* Lower than the center dot */
 }
 .site-text {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 .site-bg {
   background-color: var(--primary-color);
 }
+.site-bg-main {
+  background-color: var(--primary-color);
+}
+.sidebar-bg {
+  background-color: var(--sidebar-bg);
+}
 
 /* --------------------------------------------------
   SIDEBAR STYLING
+-------------------------------------------------- */
+/* --------------------------------------------------
+  contact page
+-------------------------------------------------- */
+.banner-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+  z-index: 1;
+}
+
+.banner-content {
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 90%;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .banner-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .banner-content {
+    padding: 1rem;
+  }
+}
+/* --------------------------------------------------
+  contact page End
 -------------------------------------------------- */
 .sidebar {
   position: fixed;
@@ -397,6 +437,7 @@ SITE LOGO WRAPPER (standard border)
 }
 
 .banner-content {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 0; /* Align content to the left side */
