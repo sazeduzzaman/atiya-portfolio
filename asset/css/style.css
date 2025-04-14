@@ -74,8 +74,24 @@ body {
 }
 
 /* --------------------------------------------------
-  SIDEBAR STYLING
+  About Bio
 -------------------------------------------------- */
+.custom-dark-table thead {
+  background-color: #000 !important;
+}
+.custom-dark-table thead th,
+.custom-dark-table tbody td {
+  background: #212529 !important;
+  color: white;
+}
+
+.custom-dark-table tbody tr {
+  background-color: #242526 !important;
+}
+
+.custom-dark-table tbody tr:hover {
+  background-color: #343a40 !important;
+}
 /* --------------------------------------------------
   contact page
 -------------------------------------------------- */
@@ -179,10 +195,7 @@ body {
   border-radius: 4px;
 }
 
-.dropdown-item-custom.active {
-  background-color: var(--primary-color);
-  color: #000 !important;
-}
+
 
 /* Dropdown hover wrapper */
 .dropdown-hover {
@@ -224,9 +237,7 @@ body {
   transform: rotate(90deg);
   transition: transform 0.3s ease;
 }
-/* .site-vt-menu i {
-  color: var(--primary-color);
-} */
+
 .site-vt-menu a {
   color: #fff !important;
 }
@@ -239,9 +250,15 @@ body {
   ) !important; /* Highlight color on hover */
   color: #000;
 }
-.dropdown-item-custom a.active:hover {
-  color: white !important;
+/* .dropdown-item-custom a.active:hover {
+  
+} */
+.dropdown-item-custom.active {
+  color: var(--primary-color) !important;
 }
+/* .dropdown-menu-custom li.active a {
+  color: var(--primary-color);
+} */
 /* From Uiverse.io by doniaskima */
 .btn-one,
 .btn-one *,
