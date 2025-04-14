@@ -64,6 +64,20 @@
     <link rel="stylesheet" href="/asset/css/style.css" />
   </head>
   <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="wave-text">
+        <span>w</span><span>e</span><span>l</span><span>c</span><span>o</span>
+        <span>m</span><span>e</span>
+        <span>&nbsp;</span>
+        <span>t</span><span>o</span>
+        <span>&nbsp;</span>
+        <span>m</span><span>y</span>
+        <span>&nbsp;</span>
+        <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span
+        ><span>o</span><span>l</span><span>i</span><span>o</span>
+      </div>
+    </div>
     <!-- Cursor Style Start -->
     <div class="cursor"></div>
     <!-- Cursor Style End -->
@@ -197,9 +211,11 @@
             </a>
           </div>
         </nav>
-        <!-- only for mobile -->
+        <!-- Mobile Menu Section (for mobile devices) -->
         <div class="mobile-menu" style="background-color: #242526">
+          <!-- Row to align the elements in the menu -->
           <div class="row align-items-center">
+            <!-- Left Side: Hamburger Button for Mobile Menu -->
             <div class="col-6">
               <div class="text-start">
                 <button
@@ -209,31 +225,23 @@
                   data-bs-target="#mobile-menu"
                   aria-controls="mobile-menu"
                 >
+                  <!-- Hamburger Icon -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    version="1.1"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     width="25"
                     height="25"
-                    x="0"
-                    y="0"
                     viewBox="0 0 100 100"
-                    style="enable-background: new 0 0 512 512"
-                    xml:space="preserve"
-                    class=""
                   >
                     <g>
                       <path
                         d="M2158.58 616.54h544.25l11.34 11.33v5.67l-11.34 11.34h-544.25l-11.34-11.34v-5.67zM2158.58 758.27h430.86l11.34 11.34v5.66l-11.34 11.34h-430.86l-11.34-11.34v-5.66zM2158.58 900h544.25l11.34 11.34v5.67l-11.34 11.34h-544.25l-11.34-11.34v-5.67zM2158.58 1041.73h430.86l11.34 11.34v5.67l-11.34 11.34h-430.86l-11.34-11.34v-5.67zM10 16.67h80l1.67 1.66v.84L90 20.83H10l-1.67-1.66v-.84zM10 37.5h63.33L75 39.17V40l-1.67 1.67H10L8.33 40v-.83zM10 58.33h80L91.67 60v.83L90 62.5H10l-1.67-1.67V60zM10 79.17h63.33L75 80.83v.84l-1.67 1.66H10l-1.67-1.66v-.84z"
                         fill="#000000"
-                        opacity="1"
-                        data-original="#000000"
-                        class=""
                       ></path>
                     </g>
                   </svg>
                 </button>
-                <!-- Mobile Offcanvas -->
+
+                <!-- Offcanvas (Mobile Menu) -->
                 <div
                   class="offcanvas offcanvas-start"
                   style="background-color: #242526"
@@ -247,6 +255,7 @@
                       class="offcanvas-title"
                       id="Enable both scrolling & backdrop"
                     ></h5>
+                    <!-- Close Button for Offcanvas -->
                     <button
                       type="button"
                       class="btn-close"
@@ -254,29 +263,35 @@
                       aria-label="Close"
                     ></button>
                   </div>
+
                   <div class="offcanvas-body px-0 border-0 mt-0 pt-0">
+                    <!-- Sidebar Menu -->
                     <nav
                       class="col-md-3 col-lg-2 d-md-block bg-dark text-white sidebar mobile-sidebar p-0"
                     >
+                      <!-- Logo Section -->
                       <div class="logo-wraper pt-5">
                         <div class="site-logo-wrapper mx-auto">
                           <img
-                            src="/asset/images/logo.jpg"
+                            src="/asset/images/logo.png"
                             alt="Site Logo"
                             class="site-logo"
                           />
                         </div>
                       </div>
+
+                      <!-- Profile Section -->
                       <div class="text-center">
                         <div class="py-4 mx-auto">
                           <h4 class="mt-2 singer-title">Atiya Anisha</h4>
                           <p class="singer-tags">Singer | Vocalist</p>
-                          <!-- Social Icons -->
+
+                          <!-- Social Icons Section -->
                           <div
                             class="social-icons d-flex gap-3 mt-3 justify-content-center"
                           >
                             <a
-                              href="https://facebook.com/yourprofile"
+                              href="https://www.facebook.com/dushtu.anishaa/"
                               target="_blank"
                               class="text-white fs-5"
                               aria-label="Facebook"
@@ -284,15 +299,7 @@
                               <i class="fab fa-facebook-f"></i>
                             </a>
                             <a
-                              href="https://twitter.com/yourprofile"
-                              target="_blank"
-                              class="text-white fs-5"
-                              aria-label="Twitter"
-                            >
-                              <i class="fab fa-twitter"></i>
-                            </a>
-                            <a
-                              href="https://instagram.com/yourprofile"
+                              href="https://www.instagram.com/atiya_anisha_/"
                               target="_blank"
                               class="text-white fs-5"
                               aria-label="Instagram"
@@ -300,7 +307,7 @@
                               <i class="fab fa-instagram"></i>
                             </a>
                             <a
-                              href="https://youtube.com/yourchannel"
+                              href="https://www.youtube.com/@atiyaanisha"
                               target="_blank"
                               class="text-white fs-5"
                               aria-label="YouTube"
@@ -308,7 +315,7 @@
                               <i class="fab fa-youtube"></i>
                             </a>
                             <a
-                              href="https://spotify.com/yourartistlink"
+                              href="https://open.spotify.com/artist/5eYXWu2yEf8gne2RiDvjh9"
                               target="_blank"
                               class="text-white fs-5"
                               aria-label="Spotify"
@@ -316,15 +323,17 @@
                               <i class="fab fa-spotify"></i>
                             </a>
                           </div>
-                          <!-- Social Icons End -->
+                          <!-- End of Social Icons -->
                         </div>
                       </div>
+
                       <!-- Divider -->
                       <hr class="mx-5 pb-3" />
-                      <!-- Divider end -->
+
+                      <!-- Navigation Menu -->
                       <ul class="nav flex-column px-3 mt-4 site-vt-menu">
                         <li class="nav-item">
-                          <a class="nav-link" href="#portfolio"
+                          <a class="nav-link" href="index.html"
                             ><i class="fas fa-house-user pe-3"></i> Home</a
                           >
                         </li>
@@ -340,27 +349,17 @@
                           </a>
                           <ul class="dropdown-menu-custom">
                             <li>
-                              <a class="dropdown-item-custom" href="#bio"
+                              <a class="dropdown-item-custom" href="bio.html"
                                 >Biography</a
                               >
                             </li>
                             <li>
-                              <a class="dropdown-item-custom" href="#awards"
-                                >About Me</a
-                              >
-                            </li>
-                            <li>
-                              <a class="dropdown-item-custom" href="#media"
+                              <a class="dropdown-item-custom active" href="awards.html"
                                 >Awards</a
                               >
                             </li>
                             <li>
-                              <a class="dropdown-item-custom" href="#media"
-                                >Knowledge</a
-                              >
-                            </li>
-                            <li>
-                              <a class="dropdown-item-custom" href="#media"
+                              <a class="dropdown-item-custom " href="albums.html"
                                 >Album</a
                               >
                             </li>
@@ -373,26 +372,23 @@
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#music"
-                            ><i class="fa-regular fa-circle-check pe-3"></i>
-                            Service</a
-                          >
-                        </li>
-                        <li class="nav-item">
                           <a class="nav-link" href="contact.html"
                             ><i class="fa-regular fa-address-book pe-3"></i>
                             Contact</a
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#blog"
-                            ><i class="fa-solid fa-blog pe-3"></i>Blog & News</a
+                          <a class="nav-link" href="blog.html"
+                            ><i class="fa-solid fa-blog pe-3"></i> Blog &
+                            News</a
                           >
                         </li>
                       </ul>
+
+                      <!-- Contact Button -->
                       <div class="d-flex justify-content-center mt-5">
                         <a href="contact.html">
-                          <button class="btn-one mb-3">
+                          <button class="btn-one mb-3 mt-4">
                             <span class="text d-flex justify-content-center"
                               >Contact Me
                               <i class="ps-3 fas fa-chevron-right"></i
@@ -404,10 +400,14 @@
                         </a>
                       </div>
                     </nav>
+                    <!-- End of Sidebar Menu -->
                   </div>
                 </div>
+                <!-- End of Offcanvas (Mobile Menu) -->
               </div>
             </div>
+
+            <!-- Right Side: Contact Button -->
             <div class="col-6">
               <div class="text-end" style="position: relative; right: 10px">
                 <a href="contact.html">
@@ -422,7 +422,7 @@
             </div>
           </div>
         </div>
-        <!-- only for mobile end-->
+        <!-- End of Mobile Menu Section -->
         <!-- Main Content -->
         <main class="col-md-9 col-12 ms-sm-auto col-lg-10 px-lg-3 px-0">
           <!-- Content -->
@@ -579,5 +579,27 @@
     <script src="/asset/js/jquery.fancybox.min.js"></script>
     <!-- ✅ Custom Script (Your own site functionality) -->
     <script src="/asset/js/script.js"></script>
+    <script>
+      // Add preload-active class right away
+      document.addEventListener("DOMContentLoaded", function () {
+        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+
+        preloaders.forEach((preloader) => {
+          // Add preload-active class to the body
+          document.body.classList.add("preload-active");
+
+          // Always hide preloader after 2 seconds
+          setTimeout(() => {
+            preloader.style.transition = "opacity 0.5s ease";
+            preloader.style.opacity = "0";
+
+            setTimeout(() => {
+              preloader.style.display = "none";
+              document.body.classList.remove("preload-active");
+            }, 500); // Match the fade-out duration
+          }, 2000); // Delay before starting fade-out
+        });
+      });
+    </script>
   </body>
 </html>

@@ -122,14 +122,14 @@
                 >
                   <i class="fab fa-youtube"></i>
                 </a>
-                <!-- <a
-                  href="https://spotify.com/yourartistlink"
+                <a
+                  href="https://open.spotify.com/artist/5eYXWu2yEf8gne2RiDvjh9"
                   target="_blank"
                   class="text-white fs-5"
                   aria-label="Spotify"
                 >
                   <i class="fab fa-spotify"></i>
-                </a> -->
+                </a>
               </div>
               <!-- Social Icons End -->
             </div>
@@ -322,7 +322,7 @@
                       <!-- Divider end -->
                       <ul class="nav flex-column px-3 mt-4 site-vt-menu">
                         <li class="nav-item">
-                          <a class="nav-link " href="#portfolio"
+                          <a class="nav-link" href="#portfolio"
                             ><i class="fas fa-house-user pe-3"></i> Home</a
                           >
                         </li>
@@ -475,7 +475,7 @@
           <!-- Content end-->
 
           <footer
-            class="mt-5 container-fluid rounded-0 rounded-lg-4  d-flex flex-column justify-content-center align-items-center py-3"
+            class="mt-5 container-fluid rounded-0 rounded-lg-4 d-flex flex-column justify-content-center align-items-center py-3"
           >
             <p class="mb-0">©2025 Atiya Anisha | All Rights Reserved</p>
             <div class="text-white text-end">
@@ -501,92 +501,37 @@
       </div>
     </div>
 
-    <!-- JS Scripts -->
+    <!-- ==================== JavaScript Libraries ==================== -->
+
+    <!-- ✅ Bootstrap Bundle (Includes Popper.js) -->
     <script src="/asset/js/bootstrap.bundle.min.js"></script>
-    <!-- Slick JS -->
-    <script
-      type="text/javascript"
-      src="/asset/js/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="/asset/js/slick.min.js"
-    ></script>
+    <!-- ✅ jQuery (Required for Slick & Fancybox) -->
+    <script src="/asset/js/jquery.min.js"></script>
+    <!-- ✅ Slick Carousel (Responsive sliders) -->
+    <script src="/asset/js/slick.min.js"></script>
+    <!-- ✅ Fancybox (Image & media lightbox) -->
     <script src="/asset/js/jquery.fancybox.min.js"></script>
-    <!-- Masonry -->
+    <!-- ✅ Custom Script (Your own site functionality) -->
+    <script src="/asset/js/script.js"></script>
     <script>
-      $(document).ready(function () {
-        // add all to same gallery
-        $(".gallery a").attr("data-fancybox", "mygallery");
-        // assign captions and title from alt-attributes of images:
-        $(".gallery a").each(function () {
-          $(this).attr("data-caption", $(this).find("img").attr("alt"));
-          $(this).attr("title", $(this).find("img").attr("alt"));
-        });
-        // start fancybox:
-        $(".gallery a").fancybox();
-      });
-    </script>
-    <script>
-      const cursor = document.querySelector(".cursor");
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      });
-    </script>
-    <script>
-      const typewriterEl = document.querySelector(".typewriter");
-      const target = document.getElementById("text-typing");
-      const lines = JSON.parse(typewriterEl.getAttribute("data-lines"));
+      // Add preload-active class right away
+      document.addEventListener("DOMContentLoaded", function () {
+        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
 
-      let i = 0; // character index
-      let lineIndex = 0; // line index
-      const speed = 100;
-      const delayAfterLine = 2000;
+        preloaders.forEach((preloader) => {
+          // Add preload-active class to the body
+          document.body.classList.add("preload-active");
 
-      function typeLine() {
-        const currentLine = lines[lineIndex];
-        if (i <= currentLine.length) {
-          target.innerHTML = currentLine.slice(0, i + 1);
-          i++;
-          setTimeout(typeLine, speed);
-        } else {
+          // Always hide preloader after 2 seconds
           setTimeout(() => {
-            i = 0;
-            lineIndex = (lineIndex + 1) % lines.length;
-            target.innerHTML = "";
-            typeLine();
-          }, delayAfterLine);
-        }
-      }
+            preloader.style.transition = "opacity 0.5s ease";
+            preloader.style.opacity = "0";
 
-      typeLine();
-    </script>
-    <script>
-      $(document).ready(function () {
-        $(".slick-slider").slick({
-          arrows: true,
-          dots: false,
-          slidesToShow: 3,
-          autoplay: true,
-          speed: 1000,
-          autoplaySpeed: 1000,
-          prevArrow: $(".custom-prev"),
-          nextArrow: $(".custom-next"),
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2,
-              },
-            },
-            {
-              breakpoint: 550,
-              settings: {
-                slidesToShow: 1,
-              },
-            },
-          ],
+            setTimeout(() => {
+              preloader.style.display = "none";
+              document.body.classList.remove("preload-active");
+            }, 500); // Match the fade-out duration
+          }, 2000); // Delay before starting fade-out
         });
       });
     </script>
