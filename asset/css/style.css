@@ -11,6 +11,7 @@
   --font-secondary: "Space Grotesk", sans-serif;
   --primary-color: #cbf716;
   --color-bg: #000;
+  --sidebar-bg: #242526;
   --color-text: #fff;
   --border-color: #cbf716;
   /* --border-color: #ffffff50;        */
@@ -59,14 +60,21 @@ body {
   transition: all 0.2s ease;
   z-index: 0; /* Lower than the center dot */
 }
+.site-text {
+  color: var(--primary-color);
+}
+.site-bg {
+  background-color: var(--primary-color);
+}
 
 /* --------------------------------------------------
   SIDEBAR STYLING
 -------------------------------------------------- */
 .sidebar {
   position: fixed;
+  z-index: 99;
   height: 100vh;
-  background-color: #242526;
+  background-color: var(--sidebar-bg);
   padding: 20px;
   color: var(--color-text);
 }
@@ -300,6 +308,31 @@ body {
   }
 }
 
+.site-bg {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    white 33%,
+    var(--primary-color) 66%,
+    var(--primary-color) 100%
+  );
+  background-size: 200% 200%;
+  animation: wave 4s ease-in-out infinite;
+  border-radius: 1rem; /* for rounded-4 look */
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* --------------------------------------------------
 SITE LOGO WRAPPER (standard border)
 -------------------------------------------------- */
@@ -468,79 +501,186 @@ SITE LOGO WRAPPER (standard border)
   height: 550px;
   object-fit: contain;
 }
-.wrapper-slider {
-  height: 100%;
-  padding: 50px;
+
+/* Slider Start */
+.slider_item {
+  padding: 10px;
+}
+.custom-arrows-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Optional spacing from top */
+}
+
+.custom-prev,
+.custom-next {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White icon color */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: #555;
+}
+
+/* Slider End  */
+/* --------------------------------------------------
+Media Query
+-------------------------------------------------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.gallery a {
+  width: calc(25% - 15px); /* 4 columns with gap */
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Columns */
+@media (max-width: 992px) {
+  .gallery a {
+    width: calc(33.333% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery a {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery a {
+    width: 100%;
+  }
+}
+footer {
+  background-color: var(--sidebar-bg);
+}
+.decoration-none {
+  text-decoration: none;
+}
+/* --------------------------------------------------
+Media Query
+-------------------------------------------------- */
+.text-purple {
+  color: var(--primary-color);
+}
+
+/* Oculta la línea de tabs predeterminada */
+.nav-tabs {
+  border-bottom: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
 }
 
-@media (max-width: 767px) {
-  .wrapper-slider {
-    padding: 50px 10px;
+/* Estilo individual de cada tab como una card */
+.nav-tabs .nav-link {
+  background: transparent; /* Changed from #fff */
+  border: 1px solid #ddd; /* Optional: gives structure */
+  border-radius: 10px;
+  padding: 15px 10px;
+  color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+  height: 100px;
+  width: 130px;
+}
+
+/* Efecto hover para que parezca una card con elevación */
+.nav-tabs .nav-link:hover {
+  background: #f8f9fa;
+}
+
+/* Card activa */
+.nav-tabs .nav-link.active {
+  background: var(--primary-color);
+  color: #000;
+  border-color: var(--primary-color);
+  box-shadow: 1px 1px 5px rgba(0, 123, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Contenido de los tabs como una card */
+.tab-content {
+  margin-top: 30px;
+  background: transparent !important; /* Edited from #fff */
+  border-radius: 10px;
+}
+
+@media (max-width: 776px) {
+  .tab-content > .tab-pane {
+    display: block;
+    opacity: 1;
   }
 }
 
-.slick-slider {
-  min-width: 0;
-}
-
-.slick-list {
-  overflow: hidden;
-}
-
-.slick-track {
-  display: flex;
-  align-items: flex-start;
-}
-
-.slider {
-  position: relative;
-  padding: 0px 60px;
-}
-
-@media (max-width: 767px) {
-  .slider {
-    padding: 0px 40px;
+@media (min-width: 992px) {
+  /* Mantiene el borde superior en tabs inactivos */
+  .tab-pane.accordion-item {
+    border-radius: 10px;
+    background-color: transparent !important; /* Edited from rgba */
+    border: 0px solid var(--primary-color);
   }
 }
 
-.slider .slick-arrow {
-  position: absolute;
-  top: 50%;
-  padding: 10px;
-  margin: -20px 0 0 0;
-  z-index: 10;
-  font-size: 0;
-  width: 50px;
-  height: 50px;
-  background-color: #fff !important; /* White background */
-  border: none; /* Remove border */
-  border-radius: 50%; /* Optional: rounded arrows */
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.slider .slick-arrow.slick-prev {
-  left: 0;
-  background: url("https://img.icons8.com/ios/50/000000/long-arrow-left.png") 0
-    0 / 100% no-repeat;
-}
-.slider .slick-arrow.slick-next {
-  right: 0;
-  background: url("https://img.icons8.com/ios/50/000000/long-arrow-right.png") 0
-    0 / 100% no-repeat;
-}
-.slider .slick-arrow.slick-disabled {
-  opacity: 0.2;
+/* Acordeon */
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: var(--primary-color);
 }
 
-.slider__item {
-  padding: 0px 15px;
+.accordion-button {
+  background-color: #f8f9fa;
+  color: black;
 }
-.slider__item img {
-  max-width: 100%;
+
+/* Mantiene la flecha original de Bootstrap pero cambia su color */
+.accordion-button::after {
+  filter: brightness(0);
+  /* Flecha negra por defecto */
+}
+
+/* Flecha blanca cuando el acordeón está activo */
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1);
+  /* Invierte el color de negro a blanco */
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.accordion-body {
+  background-color: transparent !important; /* Edited from rgba */
+  border: 0;
+  border-radius: 14px;
 }
 
 /* --------------------------------------------------
@@ -592,5 +732,21 @@ Media Query
     left: 100%;
     top: 40px;
     left: 148px;
+  }
+  .outlined-text {
+    font-size: 115px;
+  }
+  .outlined-text-right {
+    font-size: 115px;
+  }
+  .solid-text {
+    font-size: 52px;
+  }
+  .accordion-button{
+    border: 0;
+  }
+  .accordion-button.collapsed{
+    background-color: var(--primary-color);
+    border: 0;
   }
 }
