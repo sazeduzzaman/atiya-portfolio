@@ -54,9 +54,6 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- Slick Carousel -->
-    <link rel="stylesheet" href="/asset/css/slick.css" />
-
     <!-- Fancybox (Lightbox Gallery) -->
     <link rel="stylesheet" href="/asset/css/jquery.fancybox.min.css" />
 
@@ -65,18 +62,8 @@
   </head>
   <body>
     <!-- Preloader -->
-    <div class="preloader">
-      <div class="wave-text">
-        <span>w</span><span>e</span><span>l</span><span>c</span><span>o</span>
-        <span>m</span><span>e</span>
-        <span>&nbsp;</span>
-        <span>t</span><span>o</span>
-        <span>&nbsp;</span>
-        <span>m</span><span>y</span>
-        <span>&nbsp;</span>
-        <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span
-        ><span>o</span><span>l</span><span>i</span><span>o</span>
-      </div>
+    <div id="preloader">
+      <img src="/asset/images/preloader.gif" alt="Loading..." />
     </div>
     <!-- Cursor Style Start -->
     <div class="cursor"></div>
@@ -570,16 +557,29 @@
     <script src="/asset/js/bootstrap.bundle.min.js"></script>
     <!-- ✅ jQuery (Required for Slick & Fancybox) -->
     <script src="/asset/js/jquery.min.js"></script>
-    <!-- ✅ Slick Carousel (Responsive sliders) -->
-    <script src="/asset/js/slick.min.js"></script>
     <!-- ✅ Fancybox (Image & media lightbox) -->
     <script src="/asset/js/jquery.fancybox.min.js"></script>
     <!-- ✅ Custom Script (Your own site functionality) -->
-    <script src="/asset/js/script.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Assign all images in the gallery to the same Fancybox gallery
+        $(".gallery a").attr("data-fancybox", "mygallery");
+
+        // Set captions and titles from the 'alt' attribute of the images
+        $(".gallery a").each(function () {
+          const altText = $(this).find("img").attr("alt");
+          $(this).attr("data-caption", altText); // Set caption for Fancybox
+          $(this).attr("title", altText); // Set title for the image
+        });
+
+        // Initialize Fancybox for the gallery
+        $(".gallery a").fancybox();
+      });
+    </script>
     <script>
       // Add preload-active class right away
       document.addEventListener("DOMContentLoaded", function () {
-        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+        const preloaders = document.querySelectorAll("#preloader"); // Select all preloader elements by class
 
         preloaders.forEach((preloader) => {
           // Add preload-active class to the body
@@ -594,7 +594,7 @@
               preloader.style.display = "none";
               document.body.classList.remove("preload-active");
             }, 500); // Match the fade-out duration
-          }, 2000); // Delay before starting fade-out
+          }, 1000); // Delay before starting fade-out
         });
       });
     </script>

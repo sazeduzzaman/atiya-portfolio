@@ -60,24 +60,17 @@
     <!-- Fancybox (Lightbox Gallery) -->
     <link rel="stylesheet" href="/asset/css/jquery.fancybox.min.css" />
 
+    <!-- Aos Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- ========== Custom Styles ========== -->
     <link rel="stylesheet" href="/asset/css/style.css" />
   </head>
 
   <body>
     <!-- Preloader -->
-    <div class="preloader">
-      <div class="wave-text">
-        <span>w</span><span>e</span><span>l</span><span>c</span><span>o</span>
-        <span>m</span><span>e</span>
-        <span>&nbsp;</span>
-        <span>t</span><span>o</span>
-        <span>&nbsp;</span>
-        <span>m</span><span>y</span>
-        <span>&nbsp;</span>
-        <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span
-        ><span>o</span><span>l</span><span>i</span><span>o</span>
-      </div>
+    <div id="preloader">
+      <img src="/asset/images/preloader.gif" alt="Loading..." />
     </div>
     <!-- Cursor Style Start -->
     <div class="cursor"></div>
@@ -628,7 +621,9 @@
           <!-- Award start -->
           <section>
             <div class="container">
-              <div class="row site-bg rounded-4 align-items-center bg-action-box">
+              <div
+                class="row site-bg rounded-4 align-items-center bg-action-box"
+              >
                 <div class="col-lg-6">
                   <div class="px-4">
                     <h4 class="text-muted">
@@ -1196,12 +1191,14 @@
     <script src="/asset/js/slick.min.js"></script>
     <!-- ✅ Fancybox (Image & media lightbox) -->
     <script src="/asset/js/jquery.fancybox.min.js"></script>
+    <!-- Aos Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- ✅ Custom Script (Your own site functionality) -->
     <script src="/asset/js/script.js"></script>
     <script>
       // Add preload-active class right away
       document.addEventListener("DOMContentLoaded", function () {
-        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+        const preloaders = document.querySelectorAll("#preloader"); // Select all preloader elements by class
 
         preloaders.forEach((preloader) => {
           // Add preload-active class to the body
@@ -1216,7 +1213,7 @@
               preloader.style.display = "none";
               document.body.classList.remove("preload-active");
             }, 500); // Match the fade-out duration
-          }, 2000); // Delay before starting fade-out
+          }, 1000); // Delay before starting fade-out
         });
       });
     </script>

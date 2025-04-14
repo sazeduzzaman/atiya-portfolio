@@ -80,3 +80,6 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.left = `${e.clientX}px`; // Update cursor's horizontal position
   cursor.style.top = `${e.clientY}px`; // Update cursor's vertical position
 });
+
+// Aos Initialization
+AOS.init();

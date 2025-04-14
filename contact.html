@@ -65,18 +65,8 @@
   </head>
   <body>
     <!-- Preloader -->
-    <div class="preloader">
-      <div class="wave-text">
-        <span>w</span><span>e</span><span>l</span><span>c</span><span>o</span>
-        <span>m</span><span>e</span>
-        <span>&nbsp;</span>
-        <span>t</span><span>o</span>
-        <span>&nbsp;</span>
-        <span>m</span><span>y</span>
-        <span>&nbsp;</span>
-        <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span
-        ><span>o</span><span>l</span><span>i</span><span>o</span>
-      </div>
+    <div id="preloader">
+      <img src="/asset/images/preloader.gif" alt="Loading..." />
     </div>
     <!-- Cursor Style Start -->
     <div class="cursor"></div>
@@ -525,97 +515,96 @@
                   </div>
                   <div class="card border-0 m-lg-0 m-2">
                     <div class="card-body sidebar-bg">
-                      <form class="row g-3 needs-validation" novalidate>
+                      <form
+                        class="row g-3 needs-validation"
+                        id="contactForm"
+                        novalidate
+                      >
                         <div class="col-md-6">
-                          <label
-                            for="validationCustom01"
-                            class="form-label text-white"
-                            >First Name
-                            <span class="text-danger">*</span></label
+                          <label for="name" class="form-label text-white"
+                            >Name <span class="text-danger">*</span></label
                           >
                           <input
                             type="text"
                             class="form-control rounded-0"
-                            id="validationCustom01"
-                            value="Mark"
+                            id="name"
+                            name="name"
                             required
                           />
                           <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">
+                            Please enter your name.
+                          </div>
                         </div>
+
                         <div class="col-md-6">
-                          <label
-                            for="validationCustom02"
-                            class="form-label text-white"
-                            >Last name <span class="text-danger">*</span></label
+                          <label for="subject" class="form-label text-white"
+                            >Subject <span class="text-danger">*</span></label
                           >
                           <input
                             type="text"
                             class="form-control rounded-0"
-                            id="validationCustom02"
-                            value="Otto"
+                            id="subject"
+                            name="subject"
                             required
                           />
                           <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">
+                            Please enter your subject.
+                          </div>
                         </div>
+
                         <div class="col-md-6">
-                          <label
-                            for="validationCustomUsername"
-                            class="form-label text-white"
+                          <label for="email" class="form-label text-white"
                             >Email Address
                             <span class="text-danger">*</span></label
                           >
-                          <div class="input-group has-validation">
-                            <input
-                              type="email"
-                              class="form-control rounded-0"
-                              id="validationCustomUsername"
-                              aria-describedby="inputGroupPrepend"
-                              required
-                            />
-                            <div class="invalid-feedback">
-                              Please choose a username.
-                            </div>
+                          <input
+                            type="email"
+                            class="form-control rounded-0"
+                            id="email"
+                            name="email"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Please enter a valid email address.
                           </div>
                         </div>
+
                         <div class="col-md-6">
-                          <label
-                            for="validationCustomUsername"
-                            class="form-label text-white"
+                          <label for="phone" class="form-label text-white"
                             >Phone Number
                             <span class="text-danger">*</span></label
                           >
-                          <div class="input-group has-validation">
-                            <input
-                              type="number"
-                              class="form-control rounded-0"
-                              id="validationCustomUsername"
-                              aria-describedby="inputGroupPrepend"
-                              required
-                            />
-                            <div class="invalid-feedback">
-                              Enter Your Phone Number.
-                            </div>
+                          <input
+                            type="tel"
+                            class="form-control rounded-0"
+                            id="phone"
+                            name="phone"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Please enter your phone number.
                           </div>
                         </div>
+
                         <div class="col-md-12">
-                          <label
-                            for="validationCustomUsername"
-                            class="form-label text-white"
+                          <label for="message" class="form-label text-white"
                             >Message <span class="text-danger">*</span></label
                           >
-                          <div class="input-group has-validation">
-                            <textarea
-                              rows="5"
-                              class="form-control rounded-0"
-                              id="validationTextarea"
-                              placeholder="Required example textarea"
-                              required
-                            ></textarea>
-                            <div class="invalid-feedback">
-                              Please enter a message in the textarea.
-                            </div>
+                          <textarea
+                            class="form-control rounded-0"
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Enter your message"
+                            required
+                          ></textarea>
+                          <div class="invalid-feedback">
+                            Please enter a message.
                           </div>
                         </div>
+
                         <div class="col-12">
                           <button class="btn-one" type="submit">
                             <span class="text d-flex justify-content-center"
@@ -693,7 +682,7 @@
     <script>
       // Add preload-active class right away
       document.addEventListener("DOMContentLoaded", function () {
-        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+        const preloaders = document.querySelectorAll("#preloader"); // Select all preloader elements by class
 
         preloaders.forEach((preloader) => {
           // Add preload-active class to the body
@@ -708,9 +697,65 @@
               preloader.style.display = "none";
               document.body.classList.remove("preload-active");
             }, 500); // Match the fade-out duration
-          }, 2000); // Delay before starting fade-out
+          }, 1000); // Delay before starting fade-out
         });
       });
+    </script>
+    <!-- 🧠 Bootstrap Validation Script -->
+    <script>
+      (() => {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+
+        Array.from(forms).forEach((form) => {
+          form.addEventListener("submit", function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            } else {
+              event.preventDefault(); // Remove this to allow actual submission
+              alert("Form submitted successfully!"); // Custom success action
+            }
+
+            form.classList.add("was-validated");
+          });
+        });
+      })();
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/dist/email.min.js"
+    ></script>
+    <script>
+      (function () {
+        emailjs.init("pTTkDIlzMcs904RQ1"); // Replace with your EmailJS public key
+      })();
+    </script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Optional: Form validation
+          if (!this.checkValidity()) {
+            this.classList.add("was-validated");
+            return;
+          }
+
+          emailjs.sendForm("service_fh2sjak", "template_trwundq", this).then(
+            function () {
+              alert("Message sent successfully!");
+              document.getElementById("contactForm").reset();
+              document
+                .getElementById("contactForm")
+                .classList.remove("was-validated");
+            },
+            function (error) {
+              alert("Failed to send message: " + error.text);
+            }
+          );
+        });
     </script>
   </body>
 </html>

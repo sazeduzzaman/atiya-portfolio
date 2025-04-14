@@ -516,7 +516,7 @@
     <script>
       // Add preload-active class right away
       document.addEventListener("DOMContentLoaded", function () {
-        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+        const preloaders = document.querySelectorAll("#preloader"); // Select all preloader elements by class
 
         preloaders.forEach((preloader) => {
           // Add preload-active class to the body
@@ -531,7 +531,7 @@
               preloader.style.display = "none";
               document.body.classList.remove("preload-active");
             }, 500); // Match the fade-out duration
-          }, 2000); // Delay before starting fade-out
+          }, 1000); // Delay before starting fade-out
         });
       });
     </script>

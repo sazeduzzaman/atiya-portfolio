@@ -65,18 +65,8 @@
   </head>
   <body>
     <!-- Preloader -->
-    <div class="preloader">
-      <div class="wave-text">
-        <span>w</span><span>e</span><span>l</span><span>c</span><span>o</span>
-        <span>m</span><span>e</span>
-        <span>&nbsp;</span>
-        <span>t</span><span>o</span>
-        <span>&nbsp;</span>
-        <span>m</span><span>y</span>
-        <span>&nbsp;</span>
-        <span>p</span><span>o</span><span>r</span><span>t</span><span>f</span
-        ><span>o</span><span>l</span><span>i</span><span>o</span>
-      </div>
+    <div id="preloader">
+      <img src="/asset/images/preloader.gif" alt="Loading..." />
     </div>
     <!-- Cursor Style Start -->
     <div class="cursor"></div>
@@ -359,14 +349,16 @@
                               >
                             </li>
                             <li>
-                              <a class="dropdown-item-custom active" href="albums.html"
+                              <a
+                                class="dropdown-item-custom active"
+                                href="albums.html"
                                 >Album</a
                               >
                             </li>
                           </ul>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link " href="gallery.html"
+                          <a class="nav-link" href="gallery.html"
                             ><i class="fa-regular fa-folder-closed pe-3"></i>
                             Portfolio</a
                           >
@@ -600,7 +592,7 @@
     <script>
       // Add preload-active class right away
       document.addEventListener("DOMContentLoaded", function () {
-        const preloaders = document.querySelectorAll(".preloader"); // Select all preloader elements by class
+        const preloaders = document.querySelectorAll("#preloader"); // Select all preloader elements by class
 
         preloaders.forEach((preloader) => {
           // Add preload-active class to the body
@@ -615,7 +607,7 @@
               preloader.style.display = "none";
               document.body.classList.remove("preload-active");
             }, 500); // Match the fade-out duration
-          }, 2000); // Delay before starting fade-out
+          }, 1000); // Delay before starting fade-out
         });
       });
     </script>
