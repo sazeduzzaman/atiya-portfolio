@@ -769,6 +769,38 @@ Media Query
   border: 1px solid var(--primary-color);
   position: relative;
 }
+/* Album Loader */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 4px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: none; /* fallback to ensure it's hidden */
+}
+
+.card-item.show {
+  display: block !important; /* override if needed */
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* PRELOADER STYLES */
 /* PRELOADER STYLES */
