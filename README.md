@@ -16,11 +16,9 @@
 - CSS3
 - JavaScript
 
-## 📂 Folder Structure
-- `/admin`: Admin dashboard
-- `/user`: Donor and request pages
-- `/includes`: Database and utility files
-- `/css`, `/js`: Styling and scripts
+## 📂 Structure
+- `assets/`: Image And Vendors (Library's)
+- `/`: Pages
 
 ## 💡 How to Use
 1. Clone the repository.
